@@ -5,6 +5,7 @@ namespace Tests\Unit;
 use App\Project;
 use App\Task;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TasksTest extends TestCase
 {
