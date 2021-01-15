@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class TasksTest extends TestCase
 {
+    use RefreshDatabase;    
     /**
      * A basic unit test example.
      *
