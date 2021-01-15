@@ -112,6 +112,7 @@ class ProjectsTest extends TestCase
 
     public function test_only_authorized_users_can_delte_a_project()
     {
+        $this->withoutExceptionHandling();
         $project = ProjectFactory::create();
 
         $this->json('DELETE', $project->path())->assertStatus(401);
