@@ -1,0 +1,36 @@
+version: "3.8"
+services:
+    birboard_server:
+        image: "nginx:stable-alpine"
+        ports:
+            - 80:80
+        volumes: 
+            - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+        depends_on: 
+            - birdboard_api
+            - birdboard_db
+
+    birdboard_api:
+        build:
+            context: ./dockerFiles
+            dockerfile: birdboard_api.Dockerfile
+        volumes:
+            - ./birdboard:/var/www/birdboard
+    
+    birdboard_db:
+        image: "mysql:5.7"
+        ports:
+            - 3311:3306
+        volumes:
+            - ./birdboard/storage/db:/var/lib/mysql
+        env_file: 
+            - ./mysql/.env
+    
+    test_birdboard_db:
+        image: "mysql:5.7"  
+        ports:
+            - 3312:3306
+        volumes:
+            - ./birdboard/storage/test_db:/var/lib/mysql    
+        env_file: 
+            - ./mysql/test.env
