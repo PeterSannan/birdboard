@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laavel1111sdsdccdfsseeeaaa
+                    Laavel1111sdsdccdfsseeeaaass
                 </div>a
 
                 <div class="links">
